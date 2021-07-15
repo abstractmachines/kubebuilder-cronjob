@@ -1,0 +1,6 @@
+domain: example.com
+layout:
+- go.kubebuilder.io/v3
+projectName: kubebuilder-cronjob
+repo: kubebuilder-cronjob
+version: "3"
