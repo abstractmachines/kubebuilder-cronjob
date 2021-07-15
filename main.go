@@ -33,6 +33,8 @@ import (
 	//+kubebuilder:scaffold:imports
 )
 
+// Every set of controllers needs a Scheme, which provides mappings between
+// Kinds and their Go types.
 var (
 	scheme   = runtime.NewScheme()
 	setupLog = ctrl.Log.WithName("setup")
@@ -45,6 +47,7 @@ func init() {
 }
 
 func main() {
+	// We set up basic flags for metrics.
 	var metricsAddr string
 	var enableLeaderElection bool
 	var probeAddr string
@@ -61,6 +64,8 @@ func main() {
 
 	ctrl.SetLogger(zap.New(zap.UseFlagOptions(&opts)))
 
+	// We instantiate a Manager, which keeps track of running all controllers;
+	// Manager also sets up shared caches and clients to API server.
 	mgr, err := ctrl.NewManager(ctrl.GetConfigOrDie(), ctrl.Options{
 		Scheme:                 scheme,
 		MetricsBindAddress:     metricsAddr,
@@ -85,6 +90,9 @@ func main() {
 		os.Exit(1)
 	}
 
+	// We run the manager, which runs all of our controllers and webhooks.
+	// The manager is set up to run until it receives graceful shutdown signal.
+	// That graceful shutdown allows k8s to behave with graceful pod termination.
 	setupLog.Info("starting manager")
 	if err := mgr.Start(ctrl.SetupSignalHandler()); err != nil {
 		setupLog.Error(err, "problem running manager")
