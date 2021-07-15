@@ -11,11 +11,20 @@ https://book.kubebuilder.io/cronjob-tutorial/
 - Runs all of our controllers and webhooks;
 - Sets up clients to API server
 
-## Kinds, Resources
+## Kubernetes: Kinds, Resources
 > Convention: resources are always the lowercase form of the Kind
 
 - `Kind`: API type
 - `Resource`: A usage of a `Kind` in the API
 - Usually a 1:1 mapping between Kinds and resources, **but with CRDs, each Kind corresponds to a single resource**
-- GVK for GroupVersionKind
-- GVR for GroupVersionResource
+- `Go`: GVK for GroupVersionKind
+- `Go`: GVR for GroupVersionResource
+- `Scheme`: tracking what Go type (GVR) corresponds to a GVK.
+
+## API: Create Custom Resources and CRDs for our Kinds
+> CRDs are a definition of our customized Objects, and the CRs are an instance of it.
+- New APIs are how we teach Kubernetes about our custom objects;
+- `Go structs` generate a `CRD`, which includes the data `schema`
+- We then create instances of our custom objects;
+- Those instances are managed by `controllers`. **Controllers manage the CR.**
+
