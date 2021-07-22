@@ -42,7 +42,9 @@ https://book.kubebuilder.io/cronjob-tutorial/
 - This also creates file for `Cronjob Kind`, `/api/v1/cronjob_types.go`;
 - **Each time we call the command with a different Kind, a new file will be created!**
 
-> Defining Types according to Kinds
+## API: Defining Types according to Kinds
+
+> Cronjob Kind file `cronjob_types.go`
 
 - All Kubernetes objects have:
 - `TypeMeta` (API Version and Kind)

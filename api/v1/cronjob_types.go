@@ -16,12 +16,16 @@ limitations under the License.
 
 package v1
 
+// First, we import the API group which will have metadata we can retrieve about k8s objects.
 import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
 // EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
 // NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
+
+// Second, we define types for the Spec and Status of our Kind. So all "functional"
+// Kubernetes objects have a Spec and a Status.
 
 // CronJobSpec defines the desired state of CronJob
 type CronJobSpec struct {
@@ -59,6 +63,7 @@ type CronJobList struct {
 	Items           []CronJob `json:"items"`
 }
 
+// Add Go types to API Group (add types in this API group to any Scheme):
 func init() {
 	SchemeBuilder.Register(&CronJob{}, &CronJobList{})
 }
