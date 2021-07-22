@@ -59,7 +59,7 @@ https://book.kubebuilder.io/cronjob-tutorial/
 - marker comments for codegen look like `+kubebuilder:object:root=true`
 
 
-### Spec `CronjobSpec`
+### Spec `CronjobSpec` : Desired State (controller input!)
 > What does a cronjob need? a `cron` and a `job`. Deadlines are nice to have too, and handling concurrency is nice. 
 - This is why our `CronjobSpec` struct has fields for these concerns.
 
