@@ -38,6 +38,19 @@ https://book.kubebuilder.io/cronjob-tutorial/
   ```
   kubebuilder create api --group batch --version v1 --kind CronJob
   ```
-- This creates `/api/vi` dir with version from `--domain` settings earlier
+- This creates `/api/vi` dir which corresponds to `batch.{DOMAIN}/v1` per our `--domain` settings from earlier, so ours would be `batch.example.com/v1`.
 - This also creates file for `Cronjob Kind`, `/api/v1/cronjob_types.go`;
 - **Each time we call the command with a different Kind, a new file will be created!**
+
+> Defining Types according to Kinds
+
+- All Kubernetes objects have:
+- `TypeMeta` (API Version and Kind)
+- `Objectmeta` (name, namespace, labels)
+
+> `runtime.Object` interface
+- all types representing Kinds must implement this
+- kubebuilder generates this via `marker comments` for `controller-tools` codegen
+- marker comments for codegen look like `+kubebuilder:object:root=true`
+
+
