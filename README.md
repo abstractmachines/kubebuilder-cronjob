@@ -52,10 +52,16 @@ https://book.kubebuilder.io/cronjob-tutorial/
 
 > Struct tags for serialization
 
-## `controller-tools` will use markers to generate CRD manifest
+### `controller-tools` will use markers to generate CRD manifest
 > `runtime.Object` interface
 - all types representing Kinds must implement this
 - kubebuilder generates this via `marker comments` for `controller-tools` codegen
 - marker comments for codegen look like `+kubebuilder:object:root=true`
 
+
+### Spec `CronjobSpec`
+> What does a cronjob need? a `cron` and a `job`. Deadlines are nice to have too, and handling concurrency is nice. 
+- This is why our `CronjobSpec` struct has fields for these concerns.
+
+> Remember, we don't read our own `Status`; we use old jobs instead to keep track of whether a job has run.
 
