@@ -133,5 +133,6 @@ type CronJobList struct {
 
 // Add Go types to API Group (add types in this API group to any Scheme):
 func init() {
+	// if still undeclared, refer possibly to https://pkg.go.dev/sigs.k8s.io/controller-runtime@v0.9.3/pkg/scheme
 	SchemeBuilder.Register(&CronJob{}, &CronJobList{})
 }
