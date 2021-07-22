@@ -19,7 +19,7 @@ https://book.kubebuilder.io/cronjob-tutorial/
 - Usually a 1:1 mapping between Kinds and resources, **but with CRDs, each Kind corresponds to a single resource**
 - `Go`: GVK for GroupVersionKind
 - `Go`: GVR for GroupVersionResource
-- `Scheme`: tracking what Go type (GVR) corresponds to a GVK.
+- `Scheme`: tracking what Go type (GVR) corresponds to a GVK. (see `groupversion_info.go`)
 
 ## CRDs, Controller, API
 > CRDs are the canonical API for custom resources;
@@ -57,6 +57,8 @@ https://book.kubebuilder.io/cronjob-tutorial/
 - all types representing Kinds must implement this
 - kubebuilder generates this via `marker comments` for `controller-tools` codegen
 - marker comments for codegen look like `+kubebuilder:object:root=true`
+- See `zz_generated.deepcopy.go` which contains the autogen implementation of `runtime.Object` interface.
+- The core of the runtime.Object interface is a deep-copy method, `DeepCopyObject`.
 
 
 ### Spec `CronJobSpec` : Desired State (controller input!)
