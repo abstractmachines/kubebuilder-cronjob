@@ -50,6 +50,8 @@ https://book.kubebuilder.io/cronjob-tutorial/
 - `TypeMeta` (API Version and Kind)
 - `Objectmeta` (name, namespace, labels)
 
+> Struct tags for serialization
+
 ## `controller-tools` will use markers to generate CRD manifest
 > `runtime.Object` interface
 - all types representing Kinds must implement this
