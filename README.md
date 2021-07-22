@@ -21,6 +21,10 @@ https://book.kubebuilder.io/cronjob-tutorial/
 - `Go`: GVR for GroupVersionResource
 - `Scheme`: tracking what Go type (GVR) corresponds to a GVK.
 
+## CRDs, Controller, API
+> CRDs are the canonical API for custom resources;
+>> ... Controllers are the API's business logic;
+>>> ... Controllers reconcile `state` and `spec`.
 ## API: Create Custom Resources and CRDs for our Kinds
 > CRDs are a definition of our customized Objects, and the CRs are an instance of it.
 - New APIs are how we teach Kubernetes about our custom objects;
@@ -28,3 +32,12 @@ https://book.kubebuilder.io/cronjob-tutorial/
 - We then create instances of our custom objects;
 - Those instances are managed by `controllers`. **Controllers manage the CR.**
 
+## Add new API
+
+- Add API. Add new resource and controller, too.
+  ```
+  kubebuilder create api --group batch --version v1 --kind CronJob
+  ```
+- This creates `/api/vi` dir with version from `--domain` settings earlier
+- This also creates file for `Cronjob Kind`, `/api/v1/cronjob_types.go`;
+- **Each time we call the command with a different Kind, a new file will be created!**
