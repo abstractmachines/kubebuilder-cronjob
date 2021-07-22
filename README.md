@@ -50,6 +50,7 @@ https://book.kubebuilder.io/cronjob-tutorial/
 - `TypeMeta` (API Version and Kind)
 - `Objectmeta` (name, namespace, labels)
 
+## `controller-tools` will use markers to generate CRD manifest
 > `runtime.Object` interface
 - all types representing Kinds must implement this
 - kubebuilder generates this via `marker comments` for `controller-tools` codegen
