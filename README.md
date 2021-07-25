@@ -1,6 +1,8 @@
 # kubebuilder cronjob
 https://book.kubebuilder.io/cronjob-tutorial/
 
+- [Quickstart for Kubebuilder](./QUICKSTART_KUBEBUILDER.md)
+
 ## Kustomize /config
 - Kustomize YAML defs for launching controller in cluster
 - Kustomize base in `config/default`
