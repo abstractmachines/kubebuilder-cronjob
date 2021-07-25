@@ -2,6 +2,7 @@
 https://book.kubebuilder.io/cronjob-tutorial/
 
 - [Quickstart for Kubebuilder](./QUICKSTART_KUBEBUILDER.md)
+- [Operating on our CRD in the cluster](./OPERATING.md)
 
 ## Kustomize /config
 - Kustomize YAML defs for launching controller in cluster
