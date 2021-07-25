@@ -450,8 +450,8 @@ func (r *CronJobReconciler) SetupWithManager(mgr ctrl.Manager) error {
 } // w.t.f
 
 // SetupWithManager sets up the controller with the Manager.
-func (r *CronJobReconciler) SetupWithManager(mgr ctrl.Manager) error {
-	return ctrl.NewControllerManagedBy(mgr).
-		For(&batchv1.CronJob{}).
-		Complete(r)
-}
+// func (r *CronJobReconciler) SetupWithManager(mgr ctrl.Manager) error {
+// 	return ctrl.NewControllerManagedBy(mgr).
+// 		For(&batchv1.CronJob{}).
+// 		Complete(r)
+// }
